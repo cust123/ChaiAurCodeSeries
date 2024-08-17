@@ -19,3 +19,6 @@ console.log(myFirstObj);
 
 Object.freeze(myFirstObj);
 console.log(myFirstObj);
+
+const tinderUser = {};
+console.log(tinderUser);
