@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript |DOM Manipulations</title>
+  </head>
+  <body style="background-color: slategrey; color: whitesmoke">
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+  </body>
+  <script>
+    function addLanguage(langName) {
+      const li = document.createElement("li");
+      li.innerHTML = `${langName}`;
+      document.querySelector(".language").appendChild(li);
+    }
+    addLanguage("Python");
+    addLanguage("Java");
+    addLanguage("Kotlin");
+
+    // function addNewLanguage(languageName) {
+    //   const newLi = document.createElement("li");
+    //   newLi.innerHTML = `${languageName}`;
+
+    //   const myLanguage = document.querySelector(".language");
+    //   myLanguage.appendChild(newLi);
+    // }
+
+    // addNewLanguage("Jave and Kotlin");
+
+    // another optimized solution
+
+    function addOptiLanguage(langName) {
+      const optLi = document.createElement("li");
+      optLi.appendChild(document.createTextNode(langName));
+      document.querySelector(".language").appendChild(optLi);
+    }
+    addOptiLanguage("C Plus Plus");
+  </script>
+</html>
