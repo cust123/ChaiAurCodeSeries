@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Chai aur code</h1>
+    <h2 id="author"></h2>
+    <button id="stop">Stop</button>
+  </body>
+
+  <script>
+    // setTimeout(function () {
+    //   console.log("shafiq");
+    // }, 2000);
+
+    // const sayShafiq = function () {
+    //   document.getElementById("author").innerHTML =
+    //     "Developed by Hitesh Choudary";
+    // };
+
+    const changeText = function () {
+      document.querySelector("h1").innerHTML = "Best JS Series";
+    };
+
+    const changMe = setTimeout(changeText, 3000);
+    // const changeTime = setTimeout(sayShafiq, 4000);
+
+    document.querySelector("#stop").addEventListener("click", function () {
+      clearTimeout(changMe);
+      console.log("Stopped");
+    });
+
+    clearTimeout(changMe);
+  </script>
+</html>
