@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS and BrowserEvents</title>
+  </head>
+  <body style="background-color: #414141; color: aliceblue">
+    <h2>Amazing image</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+
+  <script>
+    // document.getElementById("owl").onclick = function () {
+    //   alert("owl is clicked");
+    // };
+
+    document.getElementById("images").addEventListener(
+      "click",
+      function (e) {
+        console.log("UL is clicked");
+      },
+      false
+    );
+    // // event propagation: Event propagation in browser events refers
+    // to the way events are handled and processed through the
+    //  DOM (Document Object Model) hierarchy when an event occurs.
+    //  It is essential for understanding how events are managed in a
+    //  web page and how they can be captured or handled.
+    // in  event propagtion . there are two types,
+    //1. event bubble goes from bottom to top, such as selecting li within ul, so it select first li enad then ul
+    //2. event capturing : goes from top to bottom, so here first ul will be selected and then li will be selected
+
+    document.getElementById("owl").addEventListener(
+      "click",
+      function (e) {
+        console.log("li is clciked inside the UL ");
+        e.stopPropagation();
+      },
+      false
+    );
+
+    document.getElementById("google").addEventListener(
+      "click",
+      function (e) {
+        console.log("google is clicked");
+        e.preventDefault();
+        e.stopPropagation();
+      },
+      false
+    );
+  </script>
+  <script>
+    document.getElementById("images").addEventListener(
+      "click",
+      function (e) {
+        // let removeIt = e.target.parentNode;
+        // removeIt.remove();
+      },
+      false
+    );
+
+    // removeit.parentNode.removeChild(removeIt);
+  </script>
+</html>
