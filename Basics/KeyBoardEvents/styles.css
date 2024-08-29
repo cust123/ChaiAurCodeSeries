@@ -1,0 +1,114 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+/* Navigation bar */
+nav {
+  width: 100%;
+  background-color: #007acc;
+  padding: 15px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+/* Project container */
+.project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding-top: 80px; /* Space for the fixed nav */
+  width: 100%;
+}
+
+/* Key insert box */
+#insert {
+  background-color: #ffffff;
+  border: 2px solid #007acc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 600px;
+  transition: all 0.3s ease-in-out;
+}
+
+#insert:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Key display text */
+.key {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007acc;
+  transition: color 0.3s ease;
+}
+
+.key::after {
+  content: "...";
+  animation: blink 1.5s infinite;
+}
+
+/* Blinking effect for the ellipsis */
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  nav a {
+    font-size: 16px;
+    margin: 0 15px;
+  }
+
+  #insert {
+    padding: 30px;
+    width: 80%;
+  }
+
+  .key {
+    font-size: 20px;
+  }
+}
