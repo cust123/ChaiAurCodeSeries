@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Profile Card</title>
+    <style>
+      body {
+        background-color: #212121;
+        color: azure;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .profile-card {
+        background-color: #333;
+        border-radius: 8px;
+        padding: 20px;
+        width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      .profile-card img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+      }
+
+      .profile-card h2 {
+        margin: 10px 0;
+        font-size: 24px;
+      }
+
+      .profile-card p {
+        margin: 5px 0;
+        font-size: 16px;
+        color: #bbb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-card" id="profile-card">
+      <h4>Loading...</h4>
+    </div>
+
+    <script>
+      const requestUrl = "https://api.github.com/users/cust123";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", requestUrl);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const resData = JSON.parse(this.responseText);
+          console.log(resData);
+
+          const profileCard = document.getElementById("profile-card");
+          profileCard.innerHTML = `
+            <img src="${resData.avatar_url}" alt="Profile Image" />
+            <h2>${resData.name}</h2>
+             <p>Company: ${resData.bio || "Not Available"}</p>
+            <p>Company: ${resData.company || "Not Available"}</p>
+            <p>Location: ${resData.location || "Not Available"}</p>
+            <p>Followers: ${resData.followers}</p>
+            <p>Following: ${resData.following}</p>
+            <p>Public Repos: ${resData.public_repos}</p>
+          `;
+        }
+      };
+
+      xhr.send();
+    </script>
+  </body>
+</html>
