@@ -106,3 +106,17 @@ async function getAllUsers() {
   }
 }
 getAllUsers();
+
+// another method of accessing the data from the api through .then method
+
+// fetch("https://api.github.com/users/cust123")
+fetch("https://randomuser.me/api/")
+  .then((response) => {
+    return response.json();
+  })
+  .then((shafiqData) => {
+    console.log(shafiqData);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
