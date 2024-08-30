@@ -32,4 +32,6 @@ const userThree = new User("james", 56, true);
 // in third step  this keyword is injected in the constructor function
 // in fourth step the copy is provided to new function
 
-console.log([userOne, userTwo, userThree]);
+console.log(userOne.constructor);
+console.log(userTwo instanceof User);
+console.log(userThree instanceof User);
