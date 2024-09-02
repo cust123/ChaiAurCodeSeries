@@ -40,3 +40,35 @@ const QTea = new Users("Smith", "smith@test.com", "1234");
 console.log(QTea);
 console.log(QTea.encryptPassword());
 console.log(QTea.userNameUpperCase());
+
+class UserRole {
+  constructor(userName) {
+    this.userName = userName;
+  }
+  logMe() {
+    console.log(`User Name is : ${this.userName}`);
+  }
+}
+
+class Teacher extends UserRole {
+  constructor(userName, email, password) {
+    super(userName);
+    this.email = email;
+    this.password = password;
+  }
+
+  addCourse() {
+    console.log(`A new Course was added by: ${this.userName}`);
+  }
+}
+
+const Chai = new Teacher("anni", "anni@anni.com", "1234s");
+
+Chai.addCourse();
+
+const maslaChai = new UserRole("Tasty Masla Chai");
+
+maslaChai.logMe();
+Chai.logMe();
+
+console.log(Chai instanceof UserRole);
