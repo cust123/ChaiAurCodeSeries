@@ -35,3 +35,5 @@ const userThree = new User("james", 56, true);
 console.log(userOne.constructor);
 console.log(userTwo instanceof User);
 console.log(userThree instanceof User);
+
+const newHero = ["hulk", "SpiderMen"];
