@@ -38,16 +38,20 @@
     // outer()
     // console.log("TOO OUTER", username);
 
-    // function makeFunc() {
-    //     const name = "Mozilla";
-    //     function displayName() {
-    //         console.log(name);
-    //     }
-    //     return displayName;
-    // }
+    // here with this clouser property, when an inner fuction is called, its
+    // complete lexical scope which means the outer function is taken to the memory.
+    // it does not only takes the reference of the current context
+    // so the complete lexical scope is returned!
+    function makeFunc() {
+      const name = "Mozilla";
+      function displayName() {
+        console.log(name);
+      }
+      return displayName;
+    }
 
-    // const myFunc = makeFunc();
-    // myFunc();
+    const myFunc = makeFunc();
+    myFunc();
   </script>
   <script>
     // document.getElementById("orange").onclick = function(){
